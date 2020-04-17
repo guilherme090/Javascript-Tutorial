@@ -1,4 +1,4 @@
 "use strict";
 
-let name = prompt("What is your name?","Your Name");
-alert("Your name is " + name);
+let promptedName = prompt("What is your name?","Your Name");
+alert("Your name is " + promptedName);
