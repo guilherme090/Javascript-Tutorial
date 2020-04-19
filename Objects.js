@@ -52,9 +52,41 @@ function isEmpty(obj){
 function numberOfKeys(obj){
 	//if the parameter is not an object, do not proceed
 	if (typeof(obj) != "object") return undefined;
-	keysNo = 0;
-	for(let key in obj){
+	let keysNo = 0;
+	for (let key in obj){
 		keysNo++;
 	}
 	return keysNo;
+}
+
+/*
+Summing values from keys
+
+We have an object storing salaries of our team:
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}
+
+Write the code to sum all salaries and store in the variable sum. Should be 390 in the example above.
+If salaries is empty, then the result must be 0.
+*/
+
+let salaries = {
+  John: 100,
+  Ann: 160,
+  Pete: 130
+}
+
+alert("The sum of salaries is: R$ " + sumSalaries(salaries));
+
+function sumSalaries(obj){
+	//if the parameter is not an object, do not proceed
+	if (typeof(obj) != "object") return undefined;
+	let sum = 0;
+	for (let key in obj){
+		sum += obj[key];
+	}
+	return sum;
 }
