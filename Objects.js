@@ -22,8 +22,7 @@ showKeys(user);
 
 function showKeys(userName){
 	for(let key in userName){
-		alert(key);
-		alert(userName[key]);
+		alert(key + ": " + userName[key]);
 	}
 }
 
