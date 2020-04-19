@@ -89,3 +89,43 @@ function sumSalaries(obj){
 	}
 	return sum;
 }
+
+/*
+Doubling values from numeric properties
+
+Create a function multiplyNumeric(obj) that multiplies all numeric properties of obj by 2.
+For instance:
+// before the call
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+multiplyNumeric(menu);
+
+// after the call
+menu = {
+  width: 400,
+  height: 600,
+  title: "My menu"
+};
+*/
+
+let menu = {
+  width: 200,
+  height: 300,
+  title: "My menu"
+};
+
+showKeys(menu);
+multiplyNumeric(menu);
+showKeys(menu);
+
+function multiplyNumeric(obj){
+	//if the parameter is not an object, do not proceed, but indicate that there was a mistake
+	if (typeof(obj) != "object") return undefined
+	for (let key in obj){
+		if (typeof(obj[key]) == "number") obj[key] *= 2;
+	}
+}
