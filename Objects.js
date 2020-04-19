@@ -10,7 +10,7 @@ Remove the property name from the object.
 */
 
 
-user = {};
+let user = {};
 user.name = "John";
 showKeys(user);
 user.surname = "Smith";
@@ -21,8 +21,40 @@ delete user.name;
 showKeys(user);
 
 function showKeys(userName){
-	for(key in userName){
+	for(let key in userName){
 		alert(key);
 		alert(userName[key]);
 	}
+}
+
+/*
+Checking for emptiness:
+
+Write the function isEmpty(obj) which returns true if the object 
+has no properties, false otherwise.
+*/
+
+let schedule = {};
+
+alert( isEmpty(schedule) ); // true
+
+schedule["8:30"] = "get up";
+
+alert( isEmpty(schedule) ); // false
+
+function isEmpty(obj){
+	//if the parameter is not an object, do not proceed
+	if (typeof(obj) != "object") return undefined;
+	if (numberOfKeys(obj) == 0) return true;
+	return false;
+}
+
+function numberOfKeys(obj){
+	//if the parameter is not an object, do not proceed
+	if (typeof(obj) != "object") return undefined;
+	keysNo = 0;
+	for(let key in obj){
+		keysNo++;
+	}
+	return keysNo;
 }
