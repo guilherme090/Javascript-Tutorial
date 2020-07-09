@@ -129,3 +129,47 @@ function multiplyNumeric(obj){
 		if (typeof(obj[key]) == "number") obj[key] *= 2;
 	}
 }
+
+/*
+Using 'this' in object literal
+
+Here the function makeUser returns an object.
+What is the result of accessing its ref? Why?
+function makeUser() {
+  return {
+    name: "John",
+    ref: this
+  };
+};
+
+let user = makeUser();
+
+alert( user.ref.name ); // What's the result?
+
+*/
+
+let userTested = makeUserTested();
+alert('This, in this case, doesn\'t work: ' + userTested.ref.name);
+userTested = makeUserThatWorks();
+alert('This, in this case, works: ' + userTested.ref().name);
+
+function makeUserTested(){
+	return{
+		name: 'John',
+		ref: this
+	};
+};
+
+//it shows nothing. There is an error, because makeUserTested 
+//is defined as a function, not a method with the dot notation.
+//Corrections:
+
+function makeUserThatWorks(){
+	return{
+		name:'John',
+		ref: function(){
+			return this;
+		}
+	};
+};
+
